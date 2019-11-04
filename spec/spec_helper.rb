@@ -1,4 +1,4 @@
-# at the top of spec/spec_helper.rb
+# frozen_string_literal: true
 
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'
