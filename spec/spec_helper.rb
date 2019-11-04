@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Set the environment to "test"
+# Set the environment to 'test'
 ENV['ENVIRONMENT'] = 'test'
 
 # Bring in the contents of the `app_controller.rb` file
@@ -16,7 +16,6 @@ require_relative './setup_test_database.rb'
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
-
   config.before(:each) do
     setup_test_database
   end

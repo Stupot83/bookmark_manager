@@ -1,0 +1,14 @@
+Metrics/LineLength:
+  Exclude:
+    - 'spec/**/*'
+  Max: 200
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
