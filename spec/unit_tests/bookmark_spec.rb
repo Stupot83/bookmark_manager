@@ -59,4 +59,11 @@ describe Bookmark do
       expect(result.url).to eq 'http://www.makersacademy.com'
     end
   end
+
+  describe '.create' do
+    it 'does not create a new bookmark if the URL is not valid' do
+      bookmark = Bookmark.create(url: 'not a real bookmark', title: 'not a real bookmark')
+      expect(bookmark).not_to be_a Bookmark
+    end
+  end
 end

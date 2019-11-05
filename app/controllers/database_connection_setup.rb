@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './database_connection.rb'
 
 if ENV['ENVIRONMENT'] == 'test'
