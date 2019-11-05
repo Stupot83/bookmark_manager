@@ -22,6 +22,12 @@ So that I can keep my bookmarks relevant
 I want to delete a bookmark
 ```
 
+```
+As a user
+So that I can keep my bookmarks up to date
+I want to edit a bookmark
+```
+
 ## Domain Model
 
 ![Bookmark Manager domain model](./public/images/bookmark_manager_1.png)
