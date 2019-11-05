@@ -4,6 +4,8 @@ require 'sinatra/base'
 require_relative '../models/bookmark.rb'
 # The BookmarkManager class
 class BookmarkManager < Sinatra::Base
+  enable :sessions, :method_override
+
   set :root, File.join(File.dirname(__FILE__), '..')
 
   get '/' do
@@ -11,9 +13,6 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    # Print the ENV variable
-    p ENV
-
     @bookmarks = Bookmark.all
     erb :'bookmarks/index'
   end
@@ -24,6 +23,11 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks/new' do
     Bookmark.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
+  end
+
+  delete '/bookmarks/:id' do
+    Bookmark.delete(id: params[:id])
     redirect '/bookmarks'
   end
 
