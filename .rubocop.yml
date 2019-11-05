@@ -24,3 +24,9 @@ Style/ColonMethodCall:
 
 Style/WordArray:
   Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
