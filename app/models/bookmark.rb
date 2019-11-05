@@ -3,12 +3,13 @@
 require 'pg'
 require_relative '../controllers/database_connection.rb'
 require 'uri'
+require_relative '../models/comment.rb'
 
 # The Bookmark class
 class Bookmark
   def self.all
-    result = DatabaseConnection.query('SELECT * FROM bookmarks')
-    result.map do |bookmark|
+    bookmarks = DatabaseConnection.query('SELECT * FROM bookmarks;')
+    bookmarks.map do |bookmark|
       Bookmark.new(
         url: bookmark['url'],
         title: bookmark['title'],
@@ -46,7 +47,11 @@ class Bookmark
     @url = url
   end
 
+  def comments(comment_class = Comment)
+    comment_class.where(bookmark_id: id)
+  end
+
   def self.url?(url)
-    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+    url =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]
   end
 end
