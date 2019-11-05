@@ -1,21 +1,17 @@
 # frozen_string_literal: true
 
 require 'pg'
+require_relative '../controllers/database_connection.rb'
 
 # The Bookmark class
 class Bookmark
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
-    else
-      connection = PG.connect(dbname: 'bookmark_manager')
-    end
-    bookmarks = connection.exec('SELECT * FROM bookmarks;')
-    bookmarks.map do |bookmark|
+    result = DatabaseConnection.query("SELECT * FROM bookmarks")
+    result.map do |bookmark|
       Bookmark.new(
-        id: bookmark['id'],
+        url: bookmark['url'],
         title: bookmark['title'],
-        url: bookmark['url']
+        id: bookmark['id']
       )
     end
   end
