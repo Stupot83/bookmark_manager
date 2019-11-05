@@ -30,3 +30,6 @@ Style/IfUnlessModifier:
 
 Style/NegatedIf:
   Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
