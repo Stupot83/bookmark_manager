@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../controllers/database_connection.rb'
+require_relative '../models/bookmark.rb'
 
 # The Tag class
 class Tag

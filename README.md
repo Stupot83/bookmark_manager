@@ -52,6 +52,12 @@ So that I can find relevant bookmarks
 I want to filter Bookmarks by a Tag
 ```
 
+```
+As a user
+So that I can have a personalised bookmark list
+I want to sign up with my email address
+```
+
 ## Domain Model
 
 ![Bookmark Manager domain model](./public/images/bookmark_manager_1.png)

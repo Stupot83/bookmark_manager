@@ -2,6 +2,8 @@
 
 require_relative '../../app/models/bookmark.rb'
 require_relative '../database_helpers.rb'
+require_relative '../../app/models/tag.rb'
+require_relative '../../app/models/bookmark_tag.rb'
 
 describe Bookmark do
   let(:comment_class) { double(:comment_class) }

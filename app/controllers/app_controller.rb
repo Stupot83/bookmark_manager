@@ -6,6 +6,7 @@ require_relative '../controllers/database_connection_setup.rb'
 require_relative '../models/comment.rb'
 require_relative '../models/tag.rb'
 require_relative '../models/bookmark_tag.rb'
+require_relative '../models/user.rb'
 require 'uri'
 require 'sinatra/flash'
 
@@ -21,6 +22,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
+    @user = User.find(id: session[:user_id])
     @bookmarks = Bookmark.all
     erb :'bookmarks/index'
   end
@@ -73,6 +75,16 @@ class BookmarkManager < Sinatra::Base
   get '/tags/:id/bookmarks' do
     @tag = Tag.find(id: params['id'])
     erb :'tags/index'
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    user = User.create(email: params['email'], password: params['password'])
+    session[:user_id] = user.id
+    redirect '/bookmarks'
   end
 
   run! if app_file == $PROGRAM_NAME

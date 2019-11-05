@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'capybara', require: false, group: :test
 gem 'pg'
 gem 'rspec', require: false, group: :test
